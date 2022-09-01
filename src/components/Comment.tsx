@@ -2,7 +2,13 @@ import { ThumbsDown, ThumbsUp, Trash } from "phosphor-react";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-export function Comment() {
+interface Props {
+  content: string
+  onDeleteComment: () => void
+}
+
+export function Comment({content, onDeleteComment}: Props) {
+
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/saymondamasio.png" />
@@ -17,12 +23,12 @@ export function Comment() {
               </time>
             </div>
 
-            <button title="Excluir Comentário">
+            <button onMouseDown={onDeleteComment} title="Excluir Comentário">
               <Trash size={24} />
             </button>
           </header>
 
-          <p>Muito bom Devon, parabéns!! 👏👏</p>
+          <p>{content}</p>
         </div>
 
         <footer>

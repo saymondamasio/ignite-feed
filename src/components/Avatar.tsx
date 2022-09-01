@@ -5,7 +5,7 @@ interface Props {
   hasBorder?: boolean;
 }
 
-export function Avatar({ src, hasBorder = true }: Props) {
+export function Avatar({ src, hasBorder = false }: Props) {
   return (
     <img
       className={hasBorder ? styles.avatarWithBorder : styles.avatar}
