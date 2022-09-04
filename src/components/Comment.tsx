@@ -5,14 +5,14 @@ import styles from "./Comment.module.css";
 
 interface Props {
   content: string
-  onDeleteComment: () => void
+  onDeleteComment: (comment: string) => void
 }
 
 export function Comment({ content, onDeleteComment }: Props) {
   const [likeCount, setLikeCount] = useState(0)
 
   function handleDeleteComment() {
-    onDeleteComment()
+    onDeleteComment(content)
   }
 
   function handleLikeComment() {
@@ -33,7 +33,7 @@ export function Comment({ content, onDeleteComment }: Props) {
               </time>
             </div>
 
-            <button onMouseDown={onDeleteComment} title="Excluir Comentário">
+            <button onMouseDown={handleDeleteComment} title="Excluir Comentário">
               <Trash size={24} />
             </button>
           </header>
